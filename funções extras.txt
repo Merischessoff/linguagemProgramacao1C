@@ -1,0 +1,352 @@
+Exercício 01
+
+#include <stdio.h>
+#include <stdlib.h>
+
+float masc(float h){
+    return (72.7*h)-58;
+}
+
+float fem(float h){
+    return 62.1*h-44.7;
+}
+/*
+ * 
+ */
+int main(int argc, char** argv) {
+    char sexo;
+    float altura, peso_ideal;
+    printf("Sexo (m/f): ");
+    scanf("%c",&sexo);
+    printf("Digite a altura (em metros): ");
+    scanf("%f",&altura);
+    if((sexo=='m')||(sexo=='M')){
+        peso_ideal=masc(altura);
+    } else{
+        peso_ideal=fem(altura);
+    }
+    printf("Peso ideal: %.1f",peso_ideal);
+    return (EXIT_SUCCESS);
+}
+
+____________________________________________________________________________________________________________________
+
+//2 - Escreva um programa que leia 4 notas, calcule a média simples e escreva na tela;
+
+#include <stdio.h>
+#include <stdlib.h>
+
+float media(float n1, float n2, float n3, float n4){
+    return n1+n2+n3+n4/4;
+}
+
+int main(int argc, char** argv) {
+    float n1, n2, n3, n4, r;
+    printf("n/Digite a nota 1 ");
+    scanf("%f",&n1);
+    
+    printf("n/Digite a nota 2 ");
+    scanf("%f",&n2);
+    
+    printf("n/Digite a nota 3 ");
+    scanf("%f",&n3);
+    
+    printf("n/Digite a nota 4 ");
+    scanf("%f",&n4);
+    
+    r=media(n1,n2,n3,n4);
+
+    printf("A media eh %.1f",r);
+    return (EXIT_SUCCESS);
+}
+
+_____________________________________________________________________________________________________________________
+
+//3 - Dadas 4 notas: a primeira com peso 1, a segunda
+//com peso 2, a terceira com peso 3, a quarta com peso
+//4. Leia as 4 notas e cacule a média e escreva na tela.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+float mediap(float n1, float n2, float n3, float n4){
+    return ((n1*1)+(n2*2)+(n3*3)+(n4*4)/4);
+}
+
+int main(int argc, char** argv) {
+    float n1, n2, n3, n4, r;
+    printf("n/Digite a nota 1 ");
+    scanf("%f",&n1);
+    
+    printf("n/Digite a nota 2 ");
+    scanf("%f",&n2);
+    
+    printf("n/Digite a nota 3 ");
+    scanf("%f",&n3);
+    
+    printf("n/Digite a nota 4 ");
+    scanf("%f",&n4);
+    
+    r=mediap(n1,n2,n3,n4);
+
+    printf("A media eh %.1f",r);
+    return (EXIT_SUCCESS);
+}
+_____________________________________________________________________________________________________________________
+4 - Escreva um programa que leia 4 notas e o peso de cada avaliação. Calcule a média e escreva na tela.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+float lerFloat(char msg[]){
+    float f;
+    printf("Digite o valor %s: ",msg);
+    scanf("%f",&f);
+    return f;
+}
+
+float mediaPonderada(float notas[],float pesos[], int qtde){
+    int i;
+    float soma=0, somaPesos=0;
+    for(i=0;i<qtde;i++){
+        soma=soma+(notas[i]*pesos[i]);
+        somaPesos=somaPesos+pesos[i];
+    }
+    return soma/somaPesos;
+}
+
+int main(int argc, char** argv) {
+    float n[4],p[4];
+    int i;
+    for(i=0;i<4;i++){
+        n[i]=lerFloat("da nota");
+        p[i]=lerFloat("do peso");
+    }
+    printf("Media: %.1f",mediaPonderada(n,p,4));
+    return (EXIT_SUCCESS);
+}
+_____________________________________________________________________________________________________________________
+
+5 - Considerando que o aumento dos funcionários é de 75% do INPC e mais um
+percentual de produtividade discutido com a
+empresa. Construir um programa
+que lê o número do funcionário, seu salário atual, o valor do INPC e o índice
+de
+produtividade e escreve o número do funcionário, seu aumento e o valor de
+seu novo salário.
+
+#include <stdio.h>
+
+#include <stdlib.h>
+
+
+float aumento(float satual, float indprodut){
+
+return satual*0.75*indprodut/100;
+}
+
+
+int main(int argc, char** argv){
+
+float sat, indprod, saumento;
+
+printf("Digite o salário atual\n");
+
+scanf("%f",&sat);
+
+printf("Digite o indice de produção:\n");
+
+scanf("%f", &indprod);
+
+saumento = aumento(sat,indprod);
+
+printf("Aumento: %.1f\n",saumento+sat);
+
+return (EXIT_SUCCESS);   
+}
+
+_____________________________________________________________________________________________________________________
+
+/******************************************************************************
+
+6 - O custo ao consumidor de um carro novo é a soma do custo de fábrica com a
+percentagem do distribuidor e dos
+impostos (aplicados ao custo de fábrica).
+Supondo que a percentagem do distribuidor seja de 28% e os impostos de
+
+45%, escrever um programa que leia o custo de fábrica de um carro e escreva o
+custo ao consumidor.
+
+*******************************************************************************/
+
+#include <stdio.h>
+
+#include <stdlib.h>
+
+
+float custo(float valor){
+
+return (valor-((valor*0.45)+(valor*0.28)));
+}
+
+
+int main(int argc, char** argv){
+
+float vcarro, vcusto;
+
+printf("Digite ovalor do carro\n");
+
+scanf("%f",&vcarro);
+
+vcusto = custo(vcarro);
+
+printf("Valor preco de fabrica %.1f\n",vcusto);
+
+return (EXIT_SUCCESS);   
+}
+
+____________________________________________________________________________________________________________________
+
+/******************************************************************************
+
+7 - Escreva um programa que lê três numeros e imprima o resultado da soma dos 
+dois maiores numeros.
+
+*******************************************************************************/
+
+#include <stdio.h
+>
+#include <stdlib.h>
+
+
+int maior(int a, int b, int c){
+
+int soma;
+
+if(a > b && a > c && b > c){
+
+soma=a+b;}
+
+if(a > b && a > c && b < c){
+
+soma=a+c;}
+
+if(a < b && a < c && b < c){
+
+soma=b+c;}
+
+return soma;
+}
+
+
+
+
+int main(int argc, char** argv){
+
+int n1, n2, n3, soma;
+
+printf("Digite 3 números\n");
+
+scanf("%d",&n1);
+
+scanf("%d",&n2);
+
+scanf("%d",&n3);
+
+soma = maior(n1, n2, n3);
+
+printf("A soma dos 2 maiores números eh %1.d\n",soma);
+
+return (EXIT_SUCCESS);   
+}
+______________________________________________________________________________________________________________________
+/******************************************************************************
+8 - Escreva um programa que lê três numeros. O programa deve:
+a - ter uma função recebe os três numeros que retorna o maior dos valores
+b - ter uma função que recebe os três números e retorna o menor dos valores
+c - ter uma função que recebe os três números e retorna a média dos valores
+d - ter uma função que irá somar dois valores
+o programa deve imprimir o maior valor, o menor, a média, a soma do maior e do
+menor.
+*******************************************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+
+int soma(int a, int b, int c){
+
+int soma;
+
+if(a > b && a > c && b > c){
+
+soma=a+c;}
+
+if(a > b && a > c && b < c){
+
+soma=a+b;}
+
+if(a < b && a < c && b < c){
+
+soma=b+a;}
+
+return soma;
+}
+
+int menor(int a, int b, int c){
+
+int me;
+
+if(a > b && a > c){
+
+me=c;}
+
+if(b > a && b < c){
+
+me=b;}
+
+if(c > a && c > b){
+
+me=a;}
+
+return me;
+}
+
+int maior(int a, int b, int c){
+
+int ma;
+
+if(a > b && a > c){
+
+ma=a;}
+
+if(b > a && b > c){
+
+ma=b;}
+
+if(c > a && c > b){
+
+ma=c;}
+
+return ma;
+}
+
+int media(int a, int b, int c){
+    int media=0;
+    media=a+b+c/3;
+    return media;
+}
+
+int main(int argc, char** argv){
+    int n1=0, n2=0, n3=0, somap=0, mediap=0, menorp=0, maiorp=0;
+    printf("Digite 3 números\n");
+    scanf("%d",&n1);
+    scanf("%d",&n2);
+    scanf("%d",&n3);
+    mediap = media (n1, n2, n3);
+    menorp = menor (n1, n2, n3);
+    maiorp = maior (n1, n2, n3);
+    printf("A soma do maior e menor numero eh %1.d\n",menorp+maiorp);
+    printf("A media dos 3 numeros eh %1.d\n",mediap);
+    printf("O menor numero eh %1.d\n",menorp);
+    printf("O maior numero eh %1.d\n",maiorp);
+    return (EXIT_SUCCESS);
+}

@@ -1,0 +1,266 @@
+Resolução ex1
+/*1 - Escreva um programa que leia um número e escreva este número 
+elevado ao quadrado. O programa deve ter uma função que recebe um 
+número como parâmetro e retorne este número elevado ao quadrado*/
+#include <stdio.h>
+#include <math.h>
+int quadrado(int a);
+int quadrado1(int num);
+int quadrado2(int);
+
+int main(){
+    int a;
+    printf("Digite um numero: ");
+    scanf("%d",&a);
+    printf("%d elevado ao quadrado eh %d",a,quadrado1(a)); 
+}
+int quadrado1(int num){
+    int aux;
+    aux=num*num;
+    return aux;
+}
+int quadrado(int num){
+    return num*num;
+}
+int quadrado2(int num){
+    int aux = pow(num,2);
+    return aux;//outra opcao: return pow(num,2);
+}
+_____________________________________________________________________________________________________________________
+
+Resolução ex2
+/*2 - Escreva um programa que leia 3 números. 
+O programa deve apresentar a soma e o produto dos 3 números. 
+O programa deve ter uma função que recebe os três números e retorna a soma,
+ e outra função que recebe os três números e retorna o produto.*/
+ #include<stdio.h>
+
+ int lerNumero();
+ int soma(int,int,int);
+ int produto(int a,int b,int c);
+int main(){
+    int x,y,z;
+    int mult;
+    x=lerNumero();
+    y=lerNumero();
+    z=lerNumero();
+    printf("A soma eh: %d\n",soma(x,y,z));
+    mult=produto(x,y,z);
+    printf("O produto eh: %d",mult);
+
+}
+int lerNumero(){
+    int num;
+    printf("Digite um numero: ");
+    scanf("%d",&num);
+    return num;
+}
+int soma(int a, int b, int c){
+     return a+b+c;
+}
+int produto(int a, int b, int c){
+     return a*b*c;
+}
+_____________________________________________________________________________________________________________________
+int lerNumero();
+
+int soma(int,int);
+
+int produto(int a,int b);
+
+int dividir(int a,int b);
+
+int subtrair(int a,int b);
+
+int main(){
+
+int x,y;
+   
+int mult, divi;
+
+x=lerNumero();
+
+y=lerNumero();
+printf("A soma eh: %d\n",soma(x,y));
+
+mult=produto(x,y);
+
+printf("O produto eh: %d\n",mult);
+printf("A subtracao eh: %d\n",subtrair(x,y));
+
+divi=dividir(x,y);
+
+printf("a divisao eh: %d",divi);
+
+
+}
+
+int lerNumero(){
+
+int num;
+
+printf("Digite um numero: ");
+
+scanf("%d",&num);
+
+return num;
+
+}
+
+int soma(int a, int b){
+
+return a+b;
+
+}
+
+int produto(int a, int b){
+
+return a*b;
+
+}
+
+int dividir(int a, int b){
+
+return a/b;
+
+}
+
+
+int subtrair(int a, int b){
+
+return a-b;
+
+} 
+______________________________________________________________________________________________________________________
+Resolução ex4
+/* 
+ * File:   main.c
+ * Author: FABIO
+ *
+ * Created on 24 de Outubro de 2014, 08:30
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+void soma(){
+    float a,b;
+    printf("Digite o primeiro operando: ");
+    scanf("%f",&a);
+    printf("Digite o segundo operando: ");
+    scanf("%f",&b);
+    printf("Resultado: %.2f",a+b);
+}
+void subt(){
+    //mesmo que soma
+}
+void divi(){
+    //mesmo que subt
+}
+void mult(){
+    //mesmo acima
+}
+void fato(){
+    int num,i;
+    float resp=1;
+    printf("Digite um numero: ");
+    scanf("%d",&num);    
+    for(i=2;i<=num;i++){
+        resp=resp*i;
+    }
+    printf("Resposta: %.0f",resp);
+}
+void pote(){
+    float a,b;
+    printf("Digite a base: ");
+    scanf("%f",&a);
+    printf("Digite a potencia: ");
+    scanf("%f",&b);
+    printf("Resposta: %.2f",pow(a,b));
+}
+
+
+/*
+ * 
+ */
+int main(int argc, char** argv) {
+    char opcao;
+    do{
+        printf("\nDigite sua opcao: ");
+        scanf(" %c",&opcao); getchar();    
+        switch(opcao){
+            case 'a':soma();break;
+            case 'b':subt();break;
+            case 'c':divi();break;
+            case 'd':mult();break;
+            case 'e':fato();break;
+            case 'f':pote();break;
+            case 'g':break;
+            default : printf("Opcao invalida!\n");
+        }
+    }while(opcao!='g');
+    return (EXIT_SUCCESS);
+}
+_____________________________________________________________________________________________________________________
+Resolução ex5
+
+/* 
+ * File:   main.c
+ * Author: FABIO
+ *
+ * Created on 14 de Dezembro de 2012, 08:38
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+float calculaItem(int, int);
+int lerQtde();
+int lerItem();
+
+int main(int argc, char** argv) {
+    char opcao;
+    int item, qtde;
+    float totalDia=0, totalPedido=0;
+    while(opcao!='E'){
+        //incluir codigo para imprimir as opcoes
+        printf("Digite sua Opcao: ");
+        scanf("%c",&opcao);
+        switch(opcao){
+            case 'A':   totalPedido=0;break;
+            case 'B':   item=lerItem();
+                        qtde=lerQtde();
+                        totalPedido=totalPedido+calculaItem(item,qtde);
+                        printf("Total do item: R$%.2f\n", calculaItem(item,qtde));
+                        break;
+            case 'C':   printf("Total do Pedido: R$%.2f",totalPedido); break;
+            case 'D':   printf("Total do Dia: R$%.2f",totalDia); break;                        
+        }        
+    }
+    return (EXIT_SUCCESS);
+}
+int lerItem(){
+    //incluir codigo para escrever os itens do Menu e respectivos codigos
+    int codigo;
+    printf("Digite o codigo do item desejado: ");
+    scanf("%d",&codigo);
+    return codigo;
+}
+int lerQtde(){
+    int itens;
+    printf("Digite a quantidade solicitada: ");
+    scanf("%d",&itens);
+    return itens;
+}
+float calculaItem(int codigo, int qtde){
+    switch(codigo){
+        case 100: return 11*qtde; break;
+        case 101: return 13*qtde; break;
+        case 102: return 15*qtde; break;
+        case 103: return 11*qtde; break;
+        case 104: return 13*qtde; break;
+        case 105: return 3*qtde; break;
+        default: return 0; break;
+    }
+}

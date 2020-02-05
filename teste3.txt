@@ -1,0 +1,30 @@
+//3 - Faça um programa que leia a média do aluno e seu numero de faltas.
+//se as faltas forem maior ou igual a 5, escreva 'reprovado por faltas'.
+//Se a média for menor que 7, foi reprovado por média. Senão, escreva 'Parabéns! você foi aprovado'.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+    int faltas;
+    float media;
+    
+    printf("Digite o número de faltas do aluno: ");
+    scanf("%d", &faltas);
+    
+    printf("Digite a média do aluno: ");
+    scanf("%f", &media);
+    
+    if(faltas>=5) {
+        printf("\nReprovado por faltas.\n");
+        }
+    else if(media<7) {
+        printf("\nReprovado por média.\n");
+        }
+    else {
+        printf("\nO aluno foi aprovado.\n");
+    }
+
+    return 0;
+}

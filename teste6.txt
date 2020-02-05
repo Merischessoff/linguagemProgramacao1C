@@ -1,0 +1,29 @@
+//6 - Faça um programa que leia um nº inteiro
+//e mostre uma mensagem indicando se este número
+//é par ou ímpar, e se é positivo ou negativo. Ex: 'O número 2 é par e é positivo'.
+
+#include <stdio.h>
+#include<stdlib.h>
+
+int main(int argc, char** argv)
+{
+    int numero;
+
+    printf("digite um número:");
+    scanf("%d",&numero);
+
+    if(numero%2==0&&numero>0) {
+        printf("Par e Positivo");
+    }
+    if(numero%2==0&&numero<0) {
+        printf("Par e Negativo");
+    }
+    if(numero%2>0&&numero>0) {
+        printf("Impar e positivo");
+    }
+    if(numero%2<0&&numero<0) {
+        printf("Impar e negativo");
+    }
+   
+    return 0;
+}
